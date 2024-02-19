@@ -1,8 +1,10 @@
-<h3 class="text-center"><%= @task.title %></h3>
-<p><%= @task.desc %></p>
+<h2 class="text-center mt-5"><%= @task.title %></h2>
+<hr>
+<p class="fs-4"> <strong>Description :</strong><%= @task.desc %></p>
 <ul>
     <li><Strong>Company : </Strong><%= @task.company %></li>
     <li><Strong>URL : </Strong><%= @task.url %></li>
+    <li><Strong>Category : </Strong><%= @task.category.name %></li>
 </ul>
 <%= link_to "Edit", edit_task_path(@task),class:"btn btn-info"%>
 <%= link_to 'Delete',@task, data: { turbo_method: 'delete', turbo_confirm: "Are you sure?" },class:"btn btn-danger"%>

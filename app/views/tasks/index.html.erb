@@ -1,7 +1,17 @@
-<h2 class="text-center">All Task</h2>
+<% if @tasks.present? %>
+<h2 class="text-center mt-5">All task </h2>
 <%  @tasks.each do |task| %>
     <h3><%= link_to  task.title, task_path(task) %></h3>
     <p><%= task.company %></p>
     <hr>
 <% end %>
-<%= link_to 'Create New Task',new_task_path,class:"btn btn-warning"%>
+<% else %>
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3 mt-1">
+      <div class="container-fluid py-1">
+        <h1 class="display-5 fw-bold">Welcome to TaskRabit List App</h1>
+        <h2 class="fw-bold display-5">No Task Found</h2>
+        <p class="col-md-8 fs-4">In the fast-paced modern world, managing personal and professional responsibilities can be overwhelming. Todo apps offer a solution by enabling users to capture and organize their tasks in a user-friendly environment. These apps vary in complexity, from simple checklists to sophisticated project management tools, but all share the common goal of assisting users in staying organized and focused.</p>
+        <%= link_to 'Create New Task',new_task_path,class:"btn btn-warning"%>
+      </div>
+    </div>
+<% end  %>

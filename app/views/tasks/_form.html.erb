@@ -20,6 +20,10 @@
     <%= form.label :"Url :",class:"form-label"%>
     <%= form.text_field :url,required:true,class:"form-control",placeholder:"Enter Url :"%>
 </div>
+<div class="mb-3">
+    <%= form.label :"Categories :",class:"form-label"%>
+    <%= form.collection_select :category_id, Category.all, :id, :name, prompt: 'Select a Category',class:"form-select" %>
+</div>
 <div class="d-grid gap-2 col-6 mx-auto">
     <% if @task.persisted? %>
      <%= form.submit "Update Task",class:"btn btn-primary"%>
