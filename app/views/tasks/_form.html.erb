@@ -1,0 +1,33 @@
+<%= simple_form_for(@task) do |form| %>
+<% if @task.persisted? %>
+    <h2 class="text-center">Update Task</h2>
+<% else %>
+    <h2 class="text-center">Add New Task</h2>
+<% end %>
+<div class="mb-3">
+    <%= form.label :"Title",class:"form-label"%>
+    <%= form.text_field :title,required:true,class:"form-control",placeholder:"Enter Title :"%>
+</div>
+<div class="mb-3">
+    <%= form.label :"Description :",class:"form-label"%>
+    <%= form.text_area :desc,required:true,class:"form-control",placeholder:"Enter Description :"%>
+</div>
+<div class="mb-3">
+    <%= form.label :"Company :",class:"form-label"%>
+    <%= form.text_field :company,required:true,class:"form-control",placeholder:"Enter Company :"%>
+</div>
+<div class="mb-3">
+    <%= form.label :"Url :",class:"form-label"%>
+    <%= form.text_field :url,required:true,class:"form-control",placeholder:"Enter Url :"%>
+</div>
+<div class="d-grid gap-2 col-6 mx-auto">
+    <% if @task.persisted? %>
+     <%= form.submit "Update Task",class:"btn btn-primary"%>
+     <%= link_to 'Back', task_path(@task),class:"btn btn-warning"%>
+<% else %>
+    <%= form.submit "Create Task",class:"btn btn-primary"%>
+    <%= link_to 'Back', root_path,class:"btn btn-warning"%>
+<% end %>
+    
+</div>
+<% end %>

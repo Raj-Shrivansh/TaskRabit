@@ -1,0 +1,7 @@
+<h2 class="text-center">All Task</h2>
+<%  @tasks.each do |task| %>
+    <h3><%= link_to  task.title, task_path(task) %></h3>
+    <p><%= task.company %></p>
+    <hr>
+<% end %>
+<%= link_to 'Create New Task',new_task_path,class:"btn btn-warning"%>
